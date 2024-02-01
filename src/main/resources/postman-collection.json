@@ -1,0 +1,61 @@
+{
+	"info": {
+		"_postman_id": "6961eec3-c461-416f-823b-caa44063e997",
+		"name": "Btrust-wallet",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28273926"
+	},
+	"item": [
+		{
+			"name": "create-wallet",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/create-wallet",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"create-wallet"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "restore-wallet",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/restore-wallet",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"restore-wallet"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

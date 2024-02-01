@@ -10,10 +10,6 @@ import org.bitcoinj.params.TestNet3Params;
 import org.bitcoinj.wallet.DeterministicSeed;
 import org.bitcoinj.wallet.Wallet;
 import org.springframework.stereotype.Service;
-
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.List;
@@ -62,17 +58,7 @@ public class WalletService {
         // Get the private key in Wallet Import Format (WIF)
         String privateKeyWIF = key.getPrivateKeyEncoded(networkParameters).toBase58();
 
-        WalletModel walletModel = new WalletModel(address.toString(),privateKeyWIF,mnemonicCode);
-
-        return walletModel;
-//        System.out.println("| Public Address | " + address + " |");
-//        System.out.println("| Private Key    | " + privateKeyWIF + " |");
-//        System.out.println("| Mnemonic Code  | " + mnemonicCode.size() + " |");
-//
-//        // Save wallet information to a JSON file
-//        saveWalletToJson(address.toString(), privateKeyWIF, mnemonicCode);
-//
-//        System.out.println("Wallet created and saved to wallet.json");
+        return new WalletModel(address.toString(),privateKeyWIF,mnemonicCode);
     }
 
     public WalletModel recoverWallet(ArrayList<String> mnemonicCode) {
@@ -99,17 +85,8 @@ public class WalletService {
         // Get the private key in Wallet Import Format (WIF)
         String privateKeyWIF = key.getPrivateKeyEncoded(networkParameters).toBase58();
 
-        WalletModel walletModel = new WalletModel(address.toString(),privateKeyWIF,mnemonicCode);
+        return new WalletModel(address.toString(),privateKeyWIF,mnemonicCode);
 
-        return walletModel;
     }
 
-//public static void saveWalletToJson(String address, String privateKey, List<String> mnemonics) throws IOException {
-//    WalletData walletData = new WalletData(address, privateKey,mnemonics);
-//    File file = new File("wallet.json");
-//
-//    try (FileWriter writer = new FileWriter(file)) {
-//        writer.write(walletData.toJson());
-//    }
-//}
 }

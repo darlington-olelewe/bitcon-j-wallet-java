@@ -2,6 +2,7 @@ package com.btrust.bitcoin.bitcoinjwallet;
 
 import lombok.RequiredArgsConstructor;
 import org.bitcoinj.crypto.MnemonicException;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -23,7 +24,7 @@ public class controller {
         return ResponseEntity.ok(walletService.createWallet());
     }
 
-    @PostMapping("restore-wallet")
+    @PostMapping(value="restore-wallet",consumes = MediaType.APPLICATION_JSON_VALUE,produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<WalletModel> recoverWallet(@RequestBody ArrayList<String> mnemonicCode){
         return ResponseEntity.ok(walletService.recoverWallet(mnemonicCode));
     }
