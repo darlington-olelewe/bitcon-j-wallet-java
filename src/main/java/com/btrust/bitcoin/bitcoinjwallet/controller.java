@@ -26,7 +26,7 @@ public class controller {
 
     @PostMapping(value="restore-wallet",consumes = MediaType.APPLICATION_JSON_VALUE,produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<WalletModel> recoverWallet(@RequestBody ArrayList<String> mnemonicCode){
-        return ResponseEntity.ok(walletService.recoverWallet(mnemonicCode));
+        return ResponseEntity.ok(walletService.restoreWallet(mnemonicCode));
     }
 
 }
